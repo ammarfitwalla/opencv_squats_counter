@@ -1,12 +1,12 @@
 import os
 import time
-
 import cv2
 import numpy as np
 
 
 class YoloModel:
-    def __init__(self, cfg_file_path, weights_file_path, confidence_threshold=0.5, nms_threshold=0.4):
+    def __init__(self, cfg_file_path, weights_file_path,
+                 confidence_threshold=0.5, nms_threshold=0.4):
         self.cfg_file_path = cfg_file_path
         self.weights_file_path = weights_file_path
         self.net = self.load_model()
@@ -44,7 +44,10 @@ class YoloModel:
                     confidences.append(float(confidence))
                     boxes.append([left, top, width, height])
 
-        indices = cv2.dnn.NMSBoxes(boxes, confidences, self.confidence_threshold, self.nms_threshold)
+        indices = cv2.dnn.NMSBoxes(boxes,
+                                   confidences,
+                                   self.confidence_threshold,
+                                   self.nms_threshold)
 
         final_boxes = []
         for i in indices:
@@ -70,18 +73,30 @@ class YoloModel:
 
 
 class Squats:
-    def __init__(self):
-        self.camera_port = 1
+    def __init__(self, camera_port):
+        self.camera_port = camera_port
+
+        # Model base dir
+        self.MODEL_BASE_DIR = 'yolo_models'
+
         # Face model
-        self.face_yolo_model_dir = r'yolo_models/face_model'
-        self.face_model_cfg_path = os.path.join(self.face_yolo_model_dir, 'yolov3-face.cfg')
-        self.face_model_weights_path = os.path.join(self.face_yolo_model_dir, 'yolov3-wider_16000.weights')
+        self.face_model_dir = 'face_model'
+        self.face_model_cfg = 'yolov3-face.cfg'
+        self.face_model_weights = 'yolov3-wider_16000.weights'
+
+        self.face_yolo_model_dir = os.path.join(self.MODEL_BASE_DIR, self.face_model_dir)
+        self.face_model_cfg_path = os.path.join(self.face_yolo_model_dir, self.face_model_cfg)
+        self.face_model_weights_path = os.path.join(self.face_yolo_model_dir, self.face_model_weights)
         self.face_yolo_model = YoloModel(self.face_model_cfg_path, self.face_model_weights_path)
 
         # Hand model
-        self.hand_yolo_model_dir = r'yolo_models/hand_model'
-        self.hand_model_cfg_path = os.path.join(self.hand_yolo_model_dir, 'yolov3-tiny.cfg')
-        self.hand_model_weights_path = os.path.join(self.hand_yolo_model_dir, 'yolov3-tiny_8000.weights')
+        self.hand_model_dir = 'hand_model'
+        self.hand_model_cfg = 'yolov3-tiny.cfg'
+        self.hand_model_weights = 'yolov3-tiny_8000.weights'
+
+        self.hand_yolo_model_dir = os.path.join(self.MODEL_BASE_DIR, self.hand_model_dir)
+        self.hand_model_cfg_path = os.path.join(self.hand_yolo_model_dir, self.hand_model_cfg)
+        self.hand_model_weights_path = os.path.join(self.hand_yolo_model_dir, self.hand_model_weights)
         self.hand_yolo_model = YoloModel(self.hand_model_cfg_path, self.hand_model_weights_path)
 
         self.countdown = False
@@ -131,7 +146,8 @@ class Squats:
                     cv2.putText(image, "Raise hand above head: ", (30, 50),
                                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
                     if face_coordinates and hand_coordinates and not self.countdown:
-                        raised_hands = self.check_hand_above_head(face_coordinates, hand_coordinates)
+                        raised_hands = self.check_hand_above_head(face_coordinates,
+                                                                  hand_coordinates)
                         if raised_hands:
                             self.countdown = True
                             self.start_time = time.time()
@@ -273,5 +289,6 @@ class Squats:
 
 
 if __name__ == '__main__':
-    obj_squats = Squats()
+    CAMERA_PORT = 1
+    obj_squats = Squats(CAMERA_PORT)
     obj_squats.capture_and_show()
