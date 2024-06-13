@@ -12,6 +12,7 @@ This project aims to create a squats counter using the YOLOv3 model for real-tim
 - [How It Works](#how-it-works)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
+- [Support](#support)
 
 ## Introduction
 
