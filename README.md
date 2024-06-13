@@ -1,3 +1,7 @@
+Sure! Here's the updated README with instructions to download the models from the provided Google Drive link and without the license part.
+
+---
+
 # YOLOv3 Squats Counter
 
 This project aims to create a squats counter using the YOLOv3 model for real-time object detection and OpenCV for video processing. The application detects the user's squats and counts them based on the position and movement of the body.
@@ -10,7 +14,6 @@ This project aims to create a squats counter using the YOLOv3 model for real-tim
 - [Usage](#usage)
 - [Project Structure](#project-structure)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -31,32 +34,25 @@ The YOLOv3 Squats Counter leverages the YOLOv3 model to detect and count squats 
     cd yolov3_squats_counter
     ```
 
-2. **Create the necessary directories:**
+2. **Download the YOLOv3 models and directory structure:**
 
-    The `main.py` script requires certain directories for storing models and other resources. Ensure the following directories are created:
+    Download the necessary model files and directory structure from the following Google Drive link:
 
-    ```bash
-    mkdir -p yolo_models/face_model
-    mkdir -p yolo_models/hand_model
+    [Download YOLO Models](https://drive.google.com/drive/folders/1pjyX2TGglypkEijmC6d7zZdnvvt92GhT?usp=sharing)
+
+    After downloading, ensure the following structure is maintained in your project directory:
+
+    ```
+    yolo_models/
+    ├── face_model/
+    │   ├── yolov3-face.cfg
+    │   └── yolov3-wider_16000.weights
+    └── hand_model/
+        ├── yolov3-tiny.cfg
+        └── yolov3-tiny_8000.weights
     ```
 
-3. **Download the YOLOv3 model weights and configuration files:**
-
-    Download the required files and place them in the appropriate directories:
-    
-    - For the face detection model:
-        - `yolov3-face.cfg`
-        - `yolov3-wider_16000.weights`
-    
-    Place these files in the `yolo_models/face_model` directory.
-
-    - For the hand detection model:
-        - `yolov3-tiny.cfg`
-        - `yolov3-tiny_8000.weights`
-    
-    Place these files in the `yolo_models/hand_model` directory.
-
-4. **Install the required Python packages:**
+3. **Install the required Python packages:**
 
     ```bash
     pip install -r requirements.txt
@@ -92,6 +88,6 @@ We welcome contributions to improve this project! Please follow these steps:
 4. Push to the branch (`git push origin feature-branch`).
 5. Create a new Pull Request.
 
-## License
+---
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+Feel free to customize this README as per your project details and specific requirements.
