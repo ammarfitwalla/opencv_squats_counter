@@ -16,7 +16,7 @@ This project aims to create a squats counter using the YOLOv3 model for real-tim
 
 ## Introduction
 
-The YOLOv3 Squats Counter leverages the YOLOv3 model to detect and count squats performed by a user. The application uses OpenCV to capture video, process frames, and display the results. This project is ideal for those interested in computer vision, deep learning or real-time object detection.
+The OpenCV Squats Counter leverages the YOLOv3 model to detect and count squats performed by a user. The application uses OpenCV to capture video, process frames, and display the results. This project is ideal for those interested in computer vision, deep learning or real-time object detection.
 
 ## Features
 
@@ -34,8 +34,8 @@ The YOLOv3 Squats Counter leverages the YOLOv3 model to detect and count squats 
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/ammarfitwalla/yolov3_squats_counter.git
-    cd yolov3_squats_counter
+    git clone https://github.com/ammarfitwalla/opencv_squats_counter.git
+    cd opencv_squats_counter
     ```
 
 2. **Download the YOLOv3 models and directory structure:**
