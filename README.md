@@ -1,7 +1,3 @@
-Got it! Let's update the README to include instructions for creating these specific directories and placing the necessary model files in them.
-
----
-
 # YOLOv3 Squats Counter
 
 This project aims to create a squats counter using the YOLOv3 model for real-time object detection and OpenCV for video processing. The application detects the user's squats and counts them based on the position and movement of the body.
