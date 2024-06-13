@@ -118,3 +118,7 @@ We welcome contributions to improve this project! Please follow these steps:
 3. ✨ Make your changes and commit them (`git commit -am 'Add new feature'`).
 4. 🔄 Push to the branch (`git push origin feature-branch`).
 5. 📥 Create a new Pull Request.
+
+## Support
+If you find this project helpful, consider buying me a coffee to support further development:
+[☕ Buy Me a Coffee](https://buymeacoffee.com/ammarfitwalla)
